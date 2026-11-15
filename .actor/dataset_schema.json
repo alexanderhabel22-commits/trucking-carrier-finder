@@ -1,0 +1,185 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Carriers",
+            "transformation": {
+                "fields": [
+                    "company_name",
+                    "usdot_number",
+                    "mc_number",
+                    "power_units",
+                    "drivers",
+                    "cargo_types",
+                    "phone",
+                    "email",
+                    "website",
+                    "city",
+                    "state",
+                    "authority_status",
+                    "insurance_bipd_on_file_usd",
+                    "safety_score",
+                    "distance_miles"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company_name": {
+                        "label": "Company",
+                        "format": "text"
+                    },
+                    "usdot_number": {
+                        "label": "USDOT",
+                        "format": "text"
+                    },
+                    "mc_number": {
+                        "label": "MC",
+                        "format": "text"
+                    },
+                    "power_units": {
+                        "label": "Trucks",
+                        "format": "number"
+                    },
+                    "drivers": {
+                        "label": "Drivers",
+                        "format": "number"
+                    },
+                    "cargo_types": {
+                        "label": "Cargo",
+                        "format": "array"
+                    },
+                    "phone": {
+                        "label": "Phone",
+                        "format": "text"
+                    },
+                    "email": {
+                        "label": "Email",
+                        "format": "text"
+                    },
+                    "website": {
+                        "label": "Website",
+                        "format": "link"
+                    },
+                    "city": {
+                        "label": "City",
+                        "format": "text"
+                    },
+                    "state": {
+                        "label": "State",
+                        "format": "text"
+                    },
+                    "authority_status": {
+                        "label": "Authority",
+                        "format": "text"
+                    },
+                    "insurance_bipd_on_file_usd": {
+                        "label": "Insurance on file ($)",
+                        "format": "number"
+                    },
+                    "safety_score": {
+                        "label": "Safety score",
+                        "format": "number"
+                    },
+                    "distance_miles": {
+                        "label": "Miles away",
+                        "format": "number"
+                    }
+                }
+            }
+        },
+        "safety": {
+            "title": "Safety & insurance",
+            "transformation": {
+                "fields": [
+                    "company_name",
+                    "usdot_number",
+                    "mc_number",
+                    "power_units",
+                    "safety_rating",
+                    "safety_score",
+                    "inspections_24mo",
+                    "driver_oos_rate_pct",
+                    "vehicle_oos_rate_pct",
+                    "safety_alerts",
+                    "crashes_24mo",
+                    "crash_fatalities_24mo",
+                    "crash_injuries_24mo",
+                    "out_of_service_order",
+                    "insurance_bipd_on_file_usd",
+                    "safer_url"
+                ]
+            },
+            "display": {
+                "component": "table"
+            }
+        },
+        "full": {
+            "title": "Full details",
+            "transformation": {
+                "fields": [
+                    "company_name",
+                    "dba_name",
+                    "usdot_number",
+                    "mc_number",
+                    "authority_status",
+                    "authority_types",
+                    "authority_pending",
+                    "operation_types",
+                    "also_broker",
+                    "also_shipper",
+                    "interstate",
+                    "operation_area",
+                    "power_units",
+                    "drivers",
+                    "cdl_drivers",
+                    "trucks",
+                    "tractors",
+                    "trailers",
+                    "annual_miles",
+                    "annual_miles_year",
+                    "cargo_types",
+                    "cargo_other",
+                    "hazmat",
+                    "phone",
+                    "fax",
+                    "email",
+                    "email_domain",
+                    "website",
+                    "street",
+                    "city",
+                    "state",
+                    "zip",
+                    "distance_miles",
+                    "registered_date",
+                    "years_registered",
+                    "mcs150_updated",
+                    "insurance_bipd_on_file_usd",
+                    "insurance_bipd_required_usd",
+                    "cargo_insurance_on_file",
+                    "safety_rating",
+                    "safety_rating_date",
+                    "safety_score",
+                    "inspections_24mo",
+                    "driver_inspections_24mo",
+                    "vehicle_inspections_24mo",
+                    "driver_oos_rate_pct",
+                    "vehicle_oos_rate_pct",
+                    "safety_alerts",
+                    "crashes_24mo",
+                    "crash_fatalities_24mo",
+                    "crash_injuries_24mo",
+                    "out_of_service_order",
+                    "out_of_service_reason",
+                    "safer_url",
+                    "source",
+                    "scraped_at"
+                ]
+            },
+            "display": {
+                "component": "table"
+            }
+        }
+    }
+}

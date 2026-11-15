@@ -1,0 +1,362 @@
+{
+    "title": "Find US trucking companies by cargo, fleet size and location",
+    "description": "Pick where, what they haul and how big. The Actor searches the official FMCSA carrier registry, checks each carrier's operating authority, insurance, inspections, crashes and out-of-service orders, and returns one clean list of carriers with phone, address, MC number and safety data.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "states": {
+            "title": "States",
+            "type": "array",
+            "description": "Two-letter state codes. Ignored when you enter a ZIP code below.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "AL",
+                    "AK",
+                    "AZ",
+                    "AR",
+                    "CA",
+                    "CO",
+                    "CT",
+                    "DE",
+                    "DC",
+                    "FL",
+                    "GA",
+                    "HI",
+                    "ID",
+                    "IL",
+                    "IN",
+                    "IA",
+                    "KS",
+                    "KY",
+                    "LA",
+                    "ME",
+                    "MD",
+                    "MA",
+                    "MI",
+                    "MN",
+                    "MS",
+                    "MO",
+                    "MT",
+                    "NE",
+                    "NV",
+                    "NH",
+                    "NJ",
+                    "NM",
+                    "NY",
+                    "NC",
+                    "ND",
+                    "OH",
+                    "OK",
+                    "OR",
+                    "PA",
+                    "PR",
+                    "RI",
+                    "SC",
+                    "SD",
+                    "TN",
+                    "TX",
+                    "UT",
+                    "VT",
+                    "VA",
+                    "WA",
+                    "WV",
+                    "WI",
+                    "WY"
+                ],
+                "enumTitles": [
+                    "Alabama",
+                    "Alaska",
+                    "Arizona",
+                    "Arkansas",
+                    "California",
+                    "Colorado",
+                    "Connecticut",
+                    "Delaware",
+                    "District of Columbia",
+                    "Florida",
+                    "Georgia",
+                    "Hawaii",
+                    "Idaho",
+                    "Illinois",
+                    "Indiana",
+                    "Iowa",
+                    "Kansas",
+                    "Kentucky",
+                    "Louisiana",
+                    "Maine",
+                    "Maryland",
+                    "Massachusetts",
+                    "Michigan",
+                    "Minnesota",
+                    "Mississippi",
+                    "Missouri",
+                    "Montana",
+                    "Nebraska",
+                    "Nevada",
+                    "New Hampshire",
+                    "New Jersey",
+                    "New Mexico",
+                    "New York",
+                    "North Carolina",
+                    "North Dakota",
+                    "Ohio",
+                    "Oklahoma",
+                    "Oregon",
+                    "Pennsylvania",
+                    "Puerto Rico",
+                    "Rhode Island",
+                    "South Carolina",
+                    "South Dakota",
+                    "Tennessee",
+                    "Texas",
+                    "Utah",
+                    "Vermont",
+                    "Virginia",
+                    "Washington",
+                    "West Virginia",
+                    "Wisconsin",
+                    "Wyoming"
+                ]
+            },
+            "prefill": [
+                "OH"
+            ],
+            "default": [
+                "OH"
+            ]
+        },
+        "zipCode": {
+            "title": "ZIP code (optional)",
+            "type": "string",
+            "description": "Search around a ZIP code instead of whole states. Leave empty to use the states above.",
+            "editor": "textfield",
+            "sectionCaption": "Or search around a ZIP code"
+        },
+        "radiusMiles": {
+            "title": "Radius (miles)",
+            "type": "integer",
+            "description": "How far from the ZIP code, measured from the carrier's ZIP code. 1 to 500.",
+            "minimum": 1,
+            "maximum": 500,
+            "default": 50
+        },
+        "cargoTypes": {
+            "title": "Cargo types",
+            "type": "array",
+            "sectionCaption": "What they haul",
+            "description": "Carriers that haul any one of these, as ticked on their FMCSA registration. Leave empty for any cargo.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "general_freight",
+                    "refrigerated_food",
+                    "fresh_produce",
+                    "meat",
+                    "beverages",
+                    "paper_products",
+                    "household_goods",
+                    "metal_coils",
+                    "building_materials",
+                    "machinery_large_objects",
+                    "logs_poles_lumber",
+                    "construction",
+                    "motor_vehicles",
+                    "driveaway_towaway",
+                    "mobile_homes",
+                    "intermodal_containers",
+                    "liquids_gases",
+                    "chemicals",
+                    "dry_bulk",
+                    "oilfield_equipment",
+                    "coal_coke",
+                    "grain_feed_hay",
+                    "livestock",
+                    "farm_supplies",
+                    "garbage_refuse",
+                    "us_mail",
+                    "utilities",
+                    "water_well",
+                    "passengers"
+                ],
+                "enumTitles": [
+                    "General freight",
+                    "Refrigerated food",
+                    "Fresh produce",
+                    "Meat",
+                    "Beverages",
+                    "Paper products",
+                    "Household goods (movers)",
+                    "Metal: sheets, coils, rolls",
+                    "Building materials",
+                    "Machinery, large objects",
+                    "Logs, poles, beams, lumber",
+                    "Construction",
+                    "Motor vehicles (car haulers)",
+                    "Drive away / tow away",
+                    "Mobile homes",
+                    "Intermodal containers",
+                    "Liquids, gases (tankers)",
+                    "Chemicals",
+                    "Commodities dry bulk",
+                    "Oilfield equipment",
+                    "Coal, coke",
+                    "Grain, feed, hay",
+                    "Livestock",
+                    "Agricultural, farm supplies",
+                    "Garbage, refuse, trash",
+                    "US mail",
+                    "Utilities",
+                    "Water well",
+                    "Passengers"
+                ]
+            },
+            "prefill": [
+                "refrigerated_food"
+            ],
+            "default": [
+                "refrigerated_food"
+            ]
+        },
+        "hazmatOnly": {
+            "title": "Hazmat carriers only",
+            "type": "boolean",
+            "description": "Only carriers registered to haul hazardous materials.",
+            "default": false
+        },
+        "operationType": {
+            "title": "Carrier type",
+            "type": "string",
+            "editor": "select",
+            "description": "For-hire carriers haul other companies' freight (who brokers and shippers book). Private fleets haul their own company's goods (food distributors, building suppliers...).",
+            "enum": [
+                "for_hire",
+                "private",
+                "any"
+            ],
+            "enumTitles": [
+                "For-hire carriers",
+                "Private fleets only",
+                "Any"
+            ],
+            "default": "for_hire"
+        },
+        "requireActiveAuthority": {
+            "title": "Only carriers with active operating authority (MC)",
+            "type": "boolean",
+            "description": "For-hire carriers only: keep carriers whose FMCSA common or contract authority is active right now. Turn off to include carriers whose authority is pending, revoked or intrastate-only.",
+            "default": true
+        },
+        "interstateOnly": {
+            "title": "Interstate carriers only",
+            "type": "boolean",
+            "description": "Only carriers registered to cross state lines.",
+            "default": false
+        },
+        "minPowerUnits": {
+            "title": "Minimum trucks (power units)",
+            "type": "integer",
+            "sectionCaption": "Fleet size and age",
+            "description": "Smallest fleet to include, counted in power units (tractors and straight trucks). Use 2 or more to skip one-truck owner-operators.",
+            "minimum": 0,
+            "default": 1
+        },
+        "maxPowerUnits": {
+            "title": "Maximum trucks (power units)",
+            "type": "integer",
+            "description": "Largest fleet to include. Leave empty for no limit.",
+            "minimum": 0
+        },
+        "minYearsInBusiness": {
+            "title": "Minimum years registered",
+            "type": "integer",
+            "description": "Only carriers whose USDOT number is at least this many years old.",
+            "minimum": 0,
+            "default": 0
+        },
+        "maxYearsInBusiness": {
+            "title": "Maximum years registered (new carriers)",
+            "type": "integer",
+            "description": "Only carriers registered within this many years. Use 1 to find new trucking companies.",
+            "minimum": 0
+        },
+        "updatedWithinMonths": {
+            "title": "Registration updated within (months)",
+            "type": "integer",
+            "description": "Only carriers that filed their FMCSA update (MCS-150) in this many months, which weeds out dormant companies. 0 turns this off.",
+            "minimum": 0,
+            "default": 24
+        },
+        "includeSafetyData": {
+            "title": "Add inspection and crash data",
+            "type": "boolean",
+            "sectionCaption": "Safety",
+            "description": "Adds 24-month inspections, out-of-service rates, safety alerts and crashes to each row.",
+            "default": true
+        },
+        "excludeUnsafe": {
+            "title": "Leave out unsafe carriers",
+            "type": "boolean",
+            "description": "Drops carriers under an active out-of-service order or with an Unsatisfactory safety rating.",
+            "default": true
+        },
+        "maxVehicleOosRate": {
+            "title": "Maximum vehicle out-of-service rate (%)",
+            "type": "integer",
+            "description": "Drop carriers whose trucks were put out of service in more than this share of inspections (national average is about 22%). Needs at least 3 inspections. Leave empty for no limit.",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "requirePhone": {
+            "title": "Only carriers with a phone number",
+            "type": "boolean",
+            "sectionCaption": "Output",
+            "default": false
+        },
+        "requireEmail": {
+            "title": "Only carriers with a company email",
+            "type": "boolean",
+            "description": "Only role mailboxes such as dispatch@ or safety@ are returned; personal addresses are never included.",
+            "default": false
+        },
+        "sortBy": {
+            "title": "Sort by",
+            "type": "string",
+            "editor": "select",
+            "enum": [
+                "fleet_size",
+                "distance",
+                "newest",
+                "oldest",
+                "safest"
+            ],
+            "enumTitles": [
+                "Biggest fleets first",
+                "Closest to the ZIP code first",
+                "Newest registrations first",
+                "Longest in business first",
+                "Best safety record first"
+            ],
+            "default": "fleet_size"
+        },
+        "maxResults": {
+            "title": "Maximum results",
+            "type": "integer",
+            "description": "Stop after this many carriers. You pay per carrier returned.",
+            "minimum": 1,
+            "maximum": 200000,
+            "prefill": 500,
+            "default": 500
+        },
+        "socrataAppToken": {
+            "title": "data.transportation.gov app token (optional)",
+            "type": "string",
+            "description": "Only for very large or frequent runs: a free app token from data.transportation.gov raises its rate limits. Not needed normally.",
+            "editor": "textfield",
+            "isSecret": true
+        }
+    },
+    "required": []
+}

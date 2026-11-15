@@ -1,0 +1,19 @@
+{
+    "actorSpecification": 1,
+    "name": "trucking-carrier-finder",
+    "title": "US Trucking Company & Carrier Leads by Cargo, Fleet Size & Area",
+    "description": "Find US trucking companies by what they haul (reefer, flatbed freight, tankers, hazmat, car haulers...), fleet size and state or ZIP radius. Each carrier comes with phone, MC number, authority, insurance, inspections, crashes and a safety score. Official FMCSA data, no login.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "dockerfile": "./Dockerfile",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 3600,
+        "memoryMbytes": 1024
+    }
+}

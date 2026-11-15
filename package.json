@@ -1,0 +1,17 @@
+{
+  "name": "trucking-carrier-finder",
+  "version": "0.1.0",
+  "description": "Find US trucking companies by cargo, fleet size and location from public FMCSA data, with authority, insurance and safety checks.",
+  "type": "module",
+  "main": "src/main.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "apify": "^3.7.2"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

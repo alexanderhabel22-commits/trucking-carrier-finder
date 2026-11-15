@@ -1,0 +1,18 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Trucking Carrier Finder output",
+    "properties": {
+        "carriers": {
+            "type": "string",
+            "title": "Carriers",
+            "description": "The list of carriers found.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "summary": {
+            "type": "string",
+            "title": "Run summary",
+            "description": "How many registrations matched, how many were dropped and why.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}
