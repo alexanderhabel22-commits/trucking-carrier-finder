@@ -313,7 +313,8 @@
             "title": "Only carriers with a phone number",
             "type": "boolean",
             "sectionCaption": "Output",
-            "default": false
+            "default": false,
+            "description": "Only carriers that registered a phone number (almost all do)."
         },
         "requireEmail": {
             "title": "Only carriers with a company email",
@@ -339,7 +340,8 @@
                 "Longest in business first",
                 "Best safety record first"
             ],
-            "default": "fleet_size"
+            "default": "fleet_size",
+            "description": "Which carriers come first, and which are kept when Maximum results cuts the list."
         },
         "maxResults": {
             "title": "Maximum results",
