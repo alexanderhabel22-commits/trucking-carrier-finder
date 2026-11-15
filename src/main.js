@@ -317,7 +317,8 @@ async function run() {
     };
     await Actor.setValue('RUN_SUMMARY', summary);
     log.info('Done', summary);
-    await Actor.setStatusMessage(`Found ${rows.length} matching carriers, returned ${out.length}.`, { isStatusMessageTerminal: true });
+    const matched = stats.census_matches != null ? ` from ${stats.census_matches} matching FMCSA registrations` : '';
+    await Actor.setStatusMessage(`Returned ${out.length} vetted carriers${matched}.`, { isStatusMessageTerminal: true });
     await Actor.exit();
 }
 
