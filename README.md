@@ -11,12 +11,17 @@ Find US trucking companies by **what they haul**, **how many trucks they run** a
 
 ## What you get
 
-| company_name | usdot_number | mc_number | power_units | cargo_types | phone | city | state | authority_status | insurance_bipd_on_file_usd | safety_score |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Example Cold Freight LLC | 1234567 | MC765432 | 42 | refrigerated_food, meat | (614) 555-0100 | Columbus | OH | active | 1000000 | 96 |
-| Example Hauling Inc | 2345678 | MC876543 | 18 | general_freight, refrigerated_food | (419) 555-0142 | Toledo | OH | active | 750000 | 88 |
+The input form comes pre-filled with **refrigerated food carriers, Ohio, 100 results**. Click Start and you get this kind of list in about 15 seconds, for about $0.41. These rows are from a test run on November 23, 2026:
 
-*(Illustrative rows.)* Every row also has:
+| Carrier | MC number | Phone | City | Power units | Authority | Safety score (0-100) |
+|---|---|---|---|---|---|---|
+| Greenwood Motor Lines Inc (R L Carriers) | MC99074 | (937) 382-1494 | Wilmington | 10,382 | active | 96 |
+| Zeegot Logistics LLC | MC30689 | (463) 271-2179 | Cincinnati | 320 | active | 94 |
+| Mast Trucking Inc | MC171923 | (330) 674-8913 | Massillon | 135 | active | 91 |
+| Caruso Trucking Ltd | MC337918 | (513) 860-9200 | Cincinnati | 94 | active | 92 |
+| Sysco Cincinnati LLC | MC1099733 | (513) 769-2226 | Cincinnati | 73 | active | 93 |
+
+Every row also has:
 
 - **Company**: legal name, DBA, street address, ZIP, fax, a company mailbox (dispatch@, safety@...) when one is registered, the company's email domain, and its website when the domain clearly matches the company name.
 - **Fleet**: power units, drivers, CDL drivers, trucks, tractors, trailers, annual miles, cargo types, hazmat, for-hire or private fleet, interstate or intrastate, whether it is also a broker or a shipper.
@@ -92,3 +97,4 @@ Same pricing, same clean one-row-per-company format:
 - [Medical Practice & Clinic Leads (NPI)](https://apify.com/habes22/medical-practice-leads): dental, medical and therapy practices by specialty
 - [Government Bids & RFPs (SAM.gov + State)](https://apify.com/habes22/gov-bids-finder): open federal, state and local bids for what you sell
 - [Commercial Property Owner Leads](https://apify.com/habes22/commercial-property-owner-leads): who owns offices, warehouses and other commercial buildings
+- [Solar & Battery Installer Leads](https://apify.com/habes22/solar-installer-leads): US solar installers ranked by how many systems they really installed
